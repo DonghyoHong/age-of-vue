@@ -3,19 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Component Test</title>
+    <title>-Methods</title>
 </head>
 <body>
 <div>
     <div id="app">
+        <input type="text" v-on:click.prevent.enter="enterText"/>
+        <p>{{ count }}</p>
     </div>
 </div>
-<script src="/src/main.js" type="module"></script>
+<!--<script src="/src/main.js" type="module"></script>-->
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vue-router@3.6.5/dist/vue-router.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <script>
+    const vm = new Vue({
+        el: "#app"
+        , data: {
+            count: 0
+        }
+        , methods: {
+            enterText: function () {
+                this.count++;
+            }
+        }
+    });
 </script>
 </html>

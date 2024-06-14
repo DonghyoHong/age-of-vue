@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>-Computed Usage</title>
+    <style>
+        .warning {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div id="app1">
+        <p v-bind:class="{warning : isError}">Hello</p>
+        <p v-bind:class="errorTextColor">Hello</p>
+    </div>
+</div>
+<!--<script src="/src/main.js" type="module"></script>-->
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router@3.6.5/dist/vue-router.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+    const vm = new Vue({
+        el: "#app1"
+        , data: {
+            isError: false
+        }
+        , computed: {
+            errorTextColor: function () {
+                return this.isError ? "warning" : null;
+            }
+        }
+    });
+</script>
+</html>
